@@ -1,22 +1,29 @@
 import React, { useEffect, useState } from "react";
-import supabase from "./client";
+import supabase from "./supabaseClient";
+
+import BlogCard from "./components/BlogCard";
 
 function App() {
-  const [countries, setCountries] = useState([]);
+  const [posts, setPosts] = useState([]);
 
-  async function getCountries() {
-    const { data } = await supabase.from("countries").select();
-    setCountries(data);
+  async function getPosts() {
+    const { data } = await supabase.from("blog_posts").select();
+    setPosts(data);
   }
 
   useEffect(() => {
-    getCountries();
+    getPosts();
   }, []);
 
   return (
-    <div>
-      {countries.map((country) => (
-        <h1 key={country.id}>{country.name}</h1>
+    <div className="flex">
+      {posts.map((post) => (
+        <BlogCard
+          key={post.id}
+          title={post.title}
+          content={post.content}
+          createdAt={post.created_at}
+        />
       ))}
     </div>
   );
