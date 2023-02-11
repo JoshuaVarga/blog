@@ -17,16 +17,19 @@ function Home() {
 
   return (
     <div>
-      <Outlet />
-      <div className="flex flex-wrap">
-        {posts.map((post) => (
-          <BlogCard
-            key={post.id}
-            title={post.title}
-            content={post.content}
-            createdAt={post.created_at}
-          />
-        ))}
+      <nav className="navbar">
+        <div className="navbar-start" />
+        <div className="navbar-end">
+          <a href="https://joshuavarga.dev/">About</a>
+        </div>
+      </nav>
+      <div className="flex">
+        <Outlet />
+        <div className="flex flex-1 flex-wrap">
+          {posts.map((post) => (
+            <BlogCard key={post.id} post={post} />
+          ))}
+        </div>
       </div>
     </div>
   );
