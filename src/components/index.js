@@ -1,4 +1,4 @@
 import BlogCard from "./BlogCard";
-import BlogItem from "./BlogItem";
+import BlogCards from "./BlogCards";
 
-export { BlogCard, BlogItem };
+export { BlogCard, BlogCards };

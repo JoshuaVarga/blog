@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -13,8 +14,30 @@ function BlogPost() {
   const { post } = location.state;
   const { id, title, content, created_at: createdAt } = post;
 
+  const variants = {
+    hidden: {
+      opacity: 0,
+      width: "0%",
+    },
+    visible: {
+      opacity: [0, 0, 1],
+      width: "100%",
+      marginLeft: ["0rem", "16rem", "16rem"],
+      marginRight: ["0rem", "16rem", "16rem"],
+      transition: {
+        duration: 1,
+      },
+    },
+  };
+
   return (
-    <div className="ml-64 mr-64 grow-[2]" id={id}>
+    <motion.div
+      id={id}
+      variants={variants}
+      initial="hidden"
+      animate="visible"
+      exit="hidden"
+    >
       <Link className="btn rounded-full absolute left-8 top-8" to="/">
         <FontAwesomeIcon icon={faArrowLeft} />
       </Link>
@@ -31,7 +54,7 @@ function BlogPost() {
       </div>
       <br />
       {content}
-    </div>
+    </motion.div>
   );
 }
 
