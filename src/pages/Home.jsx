@@ -11,7 +11,7 @@ function Home() {
           <a href="https://joshuavarga.dev/">About</a>
         </div>
       </nav>
-      <div className="flex">
+      <div className="flex flex-col md:flex-row">
         <Outlet key="BlogPost" />
         <BlogCards />
       </div>

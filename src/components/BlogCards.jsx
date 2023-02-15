@@ -19,6 +19,7 @@ function BlogCards() {
         mass: 0.5,
         damping: 9,
         staggerChildren: 0.1,
+        delayChildren: 0.5,
       },
     },
   };

@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    box-sizing: border-box;
+}
+html,
+body {
+    font-size: clamp(0.8rem, -0.875rem + 8.333vw, 1rem);
+}

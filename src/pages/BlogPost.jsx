@@ -20,10 +20,8 @@ function BlogPost() {
       width: "0%",
     },
     visible: {
-      opacity: [0, 0, 1],
-      width: "100%",
-      marginLeft: ["0rem", "16rem", "16rem"],
-      marginRight: ["0rem", "16rem", "16rem"],
+      opacity: [0, 0, 0, 1],
+      width: ["0%", "100%"],
       transition: {
         duration: 1,
       },
@@ -32,28 +30,30 @@ function BlogPost() {
 
   return (
     <motion.div
-      id={id}
+      className="flex justify-center"
       variants={variants}
       initial="hidden"
       animate="visible"
       exit="hidden"
     >
-      <Link className="btn rounded-full absolute left-8 top-8" to="/">
-        <FontAwesomeIcon icon={faArrowLeft} />
-      </Link>
-      <h1 className="pt-16 mt-0 mb-2 text-5xl pb-1">{title}</h1>
-      <div className="card-actions">
-        <h3>
-          <FontAwesomeIcon icon={faCalendarDays} fixedWidth />
-          {formatDate(createdAt)}
-        </h3>
-        <h3>
-          <FontAwesomeIcon icon={faStopwatch} fixedWidth />
-          {readDuration(content)} min read
-        </h3>
-      </div>
-      <br />
-      {content}
+      <motion.div id={id} className="w-2/3">
+        <Link className="btn rounded-full absolute left-8 top-8" to="/">
+          <FontAwesomeIcon icon={faArrowLeft} />
+        </Link>
+        <h1 className="pt-16 mt-0 mb-2 text-2xl pb-1 font-bold">{title}</h1>
+        <div className="card-actions">
+          <h3>
+            <FontAwesomeIcon icon={faCalendarDays} fixedWidth />
+            {formatDate(createdAt)}
+          </h3>
+          <h3>
+            <FontAwesomeIcon icon={faStopwatch} fixedWidth />
+            {readDuration(content)} min read
+          </h3>
+        </div>
+        <br />
+        <div>{content}</div>
+      </motion.div>
     </motion.div>
   );
 }

@@ -10,7 +10,7 @@ function BlogCard(props) {
   const { title, content, created_at: createdAt } = post;
 
   return (
-    <div className="card rounded-lg w-96 m-4 bg-base-200 shadow-xltransition ease-in-out delay-150 duration-300 hover:scale-105 hover:bg-base-300">
+    <div className="card rounded-lg w-auto md:w-96 m-4 bg-base-200 shadow-xltransition ease-in-out delay-150 duration-300 hover:scale-105 hover:bg-base-300">
       <div className="card-body">
         <figure>
           <img src="" alt="" />
