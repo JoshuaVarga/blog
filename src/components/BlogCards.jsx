@@ -36,7 +36,7 @@ function BlogCards() {
   return (
     posts && (
       <motion.ul
-        className="flex flex-1 flex-wrap"
+        className="flex flex-1 flex-wrap content-start"
         variants={variants}
         initial="hidden"
         animate="visible"

@@ -10,14 +10,14 @@ function BlogCard(props) {
   const { title, content, created_at: createdAt } = post;
 
   return (
-    <div className="card rounded-lg w-auto md:w-96 m-4 bg-base-200 shadow-xltransition ease-in-out delay-150 duration-300 hover:scale-105 hover:bg-base-300">
+    <div className="card rounded-lg md:w-96 md:h-56 m-4 bg-base-200 shadow-xl transition ease-in-out delay-150 duration-300 md:hover:scale-105 md:hover:bg-base-300">
       <div className="card-body">
         <figure>
           <img src="" alt="" />
         </figure>
         <Link to={title.replace(" ", "_")} state={{ post }}>
           <h2 className="card-title">{title}</h2>
-          <p>{content.substring(0, 127)}...</p>
+          <p>{content.substring(0, 159)}...</p>
         </Link>
         <div className="card-actions">
           <h3>
