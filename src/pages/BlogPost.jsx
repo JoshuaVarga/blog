@@ -19,9 +19,20 @@ function BlogPost() {
       opacity: 0,
       width: "0%",
     },
+    hiddenMobile: {
+      opacity: 0,
+      height: "0vh",
+    },
     visible: {
       opacity: [0, 0, 0, 1],
       width: ["0%", "100%"],
+      transition: {
+        duration: 1,
+      },
+    },
+    visibleMobile: {
+      opacity: [0, 0, 0, 1],
+      height: "50vh",
       transition: {
         duration: 1,
       },
@@ -30,10 +41,10 @@ function BlogPost() {
 
   return (
     <motion.div
-      className="flex justify-center"
+      className="flex justify-center overflow-scroll"
       variants={variants}
-      initial="hidden"
-      animate="visible"
+      initial={window.screen.width > 768 ? "hidden" : "hiddenMobile"}
+      animate={window.screen.width > 768 ? "visible" : "visibleMobile"}
       exit="hidden"
     >
       <motion.div id={id} className="w-2/3">
