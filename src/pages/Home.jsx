@@ -3,7 +3,7 @@ import { Outlet, useLoaderData } from "react-router-dom";
 import { BlogCards } from "../components";
 
 function Home() {
-  const posts = useLoaderData();
+  const loader = useLoaderData();
 
   return (
     <div>
@@ -25,8 +25,15 @@ function Home() {
       </nav>
       <div className="flex flex-col md:flex-row">
         <Outlet key="BlogPost" />
-        <BlogCards posts={posts.data} />
+        <BlogCards posts={loader.data} />
       </div>
+      {/* <button
+        className="btn fixed rounded-full left-1/2 bottom-8 -translate-x-6 outline outline-2"
+        type="button"
+        onClick={() => window.scrollTo(0, 0)}
+      >
+        Back to Top
+      </button> */}
     </div>
   );
 }
