@@ -1,8 +1,10 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLoaderData } from "react-router-dom";
 import { BlogCards } from "../components";
 
 function Home() {
+  const posts = useLoaderData();
+
   return (
     <div>
       <nav className="navbar bg-gradient-to-b from-base-100 via-base-100 sticky top-0 z-10">
@@ -23,7 +25,7 @@ function Home() {
       </nav>
       <div className="flex flex-col md:flex-row">
         <Outlet key="BlogPost" />
-        <BlogCards />
+        <BlogCards posts={posts.data} />
       </div>
     </div>
   );

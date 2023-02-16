@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowLeft,
@@ -10,8 +10,7 @@ import {
 import { readDuration, formatDate } from "../util";
 
 function BlogPost() {
-  const location = useLocation();
-  const { post } = location.state;
+  const post = useLoaderData().data[0];
   const { id, title, content, created_at: createdAt } = post;
 
   const variants = {
@@ -45,7 +44,6 @@ function BlogPost() {
       variants={variants}
       initial={window.screen.width > 768 ? "hidden" : "hiddenMobile"}
       animate={window.screen.width > 768 ? "visible" : "visibleMobile"}
-      exit="hidden"
     >
       <Link className="btn rounded-full fixed left-2 top-2 z-20" to="/">
         <FontAwesomeIcon icon={faArrowLeft} />
