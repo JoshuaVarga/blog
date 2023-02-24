@@ -7,11 +7,11 @@ import { readDuration, formatDate } from "../util";
 
 function BlogCard(props) {
   const { post } = props;
-  const { title, content, created_at: createdAt } = post;
+  const { title, content, created_at: createdAt, tags } = post;
 
   return (
     <div className="card blog_card">
-      <div className="card-body card-content">
+      <div className="card-body card-content justify-start">
         <figure>
           <img src="" alt="" />
         </figure>
@@ -21,7 +21,6 @@ function BlogCard(props) {
           onClick={() => window.scrollTo(0, 0)}
         >
           <h2 className="card-title">{title}</h2>
-          <p>{content.substring(0, 159)}...</p>
         </Link>
         <div className="card-actions">
           <h3>
@@ -33,6 +32,18 @@ function BlogCard(props) {
             {readDuration(content)} min read
           </h3>
         </div>
+        <Link
+          className="z-10"
+          to={title.replace(/ /g, "_")}
+          onClick={() => window.scrollTo(0, 0)}
+        >
+          <p className="text-sm">{content.substring(0, 127).trim()}...</p>
+        </Link>
+        <div className="card-actions">
+          {tags.map((tag) => (
+            <div className="badge badge-accent">{tag}</div>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -43,6 +54,7 @@ BlogCard.propTypes = {
     title: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
     created_at: PropTypes.string.isRequired,
+    tags: PropTypes.arrayOf(PropTypes.string),
   }).isRequired,
 };
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link, useLoaderData } from "react-router-dom";
+import MarkdownView from "react-showdown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowLeft,
@@ -61,7 +62,7 @@ function BlogPost() {
           </h3>
         </div>
         <br />
-        <div className="whitespace-pre-wrap">{content}</div>
+        <MarkdownView className="whitespace-pre-wrap" markdown={content} />
       </motion.div>
     </motion.div>
   );
