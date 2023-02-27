@@ -1,4 +1,5 @@
 import BlogCard from "./BlogCard";
 import BlogCards from "./BlogCards";
+import BackToTop from "./BackToTop";
 
-export { BlogCard, BlogCards };
+export { BackToTop, BlogCard, BlogCards };

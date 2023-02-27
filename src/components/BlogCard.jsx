@@ -12,9 +12,6 @@ function BlogCard(props) {
   return (
     <div className="card blog_card">
       <div className="card-body card-content justify-start">
-        <figure>
-          <img src="" alt="" />
-        </figure>
         <Link
           className="z-10"
           to={title.replace(/ /g, "_")}
@@ -41,7 +38,9 @@ function BlogCard(props) {
         </Link>
         <div className="card-actions">
           {tags.map((tag) => (
-            <div className="badge badge-accent">{tag}</div>
+            <div key={tag} className="badge badge-accent">
+              {tag}
+            </div>
           ))}
         </div>
       </div>
