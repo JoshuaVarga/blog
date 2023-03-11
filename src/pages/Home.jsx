@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet, useLoaderData } from "react-router-dom";
-import { BlogCards, BackToTop, Filter } from "../components";
+import { BlogCards, BackToTop } from "../components";
 
 function Home() {
   const loader = useLoaderData();
@@ -13,8 +13,6 @@ function Home() {
           <h1 className="font-extrabold">Joshua Varga</h1>
         </div>
         <div className="navbar-end">
-          <Filter />
-          <div className="divider divider-vertical">|</div>
           <a
             className="scale-75"
             href="https://joshuavarga.dev/"
